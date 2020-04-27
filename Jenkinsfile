@@ -34,5 +34,14 @@ pipeline {
                 }
             }
         }
+        stage('Lacework Vulnerability Scan') {
+            when {
+                branch 'master'
+            }
+            steps {
+                echo 'Running Lacework vulnerability scan'
+                sh 'lacework vulnerability scan run index.docker.io techallylw/sample-nodejs-app latest --poll --noninteractive
+            }
+        }
     }
 }
