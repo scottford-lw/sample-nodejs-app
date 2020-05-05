@@ -40,7 +40,7 @@ pipeline {
             }
             steps {
                 echo 'Running Lacework vulnerability scan'
-                sh 'lacework vulnerability scan run index.docker.io techallylw/sample-nodejs-app latest --poll --noninteractive'
+                sh 'lacework vulnerability vul report sha256:fa31faba325ec777ad2a5d72689c4f9e1e31bc1e9bc3bd2fd98197e0d1125688 --details'
             }
         }
     }
