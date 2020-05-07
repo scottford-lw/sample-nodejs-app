@@ -14,7 +14,7 @@ pipeline {
             }
             steps {
                 script {
-                    app = docker.build("techallylw/sample-nodejs-app")
+                    app = docker.build("selacework/sample-nodejs-app")
                     app.inside {
                         sh 'echo $(curl localhost:8080)'
                     }
@@ -27,7 +27,7 @@ pipeline {
             }
             steps {
                 script {
-                    docker.withRegistry('https://registry.hub.docker.com', 'docker_hub_techallylw') {
+                    docker.withRegistry('https://registry.hub.docker.com', 'selacework_docker_hub') {
                         app.push("${env.BUILD_NUMBER}")
                         app.push("latest")
                     }
