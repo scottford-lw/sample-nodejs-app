@@ -1,5 +1,5 @@
 pipeline {
-    agent { label any }
+    agent { label ubuntu1804_runner1 }
     stages {
         stage('Build') {
             steps {
