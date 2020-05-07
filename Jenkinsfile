@@ -1,5 +1,5 @@
 pipeline {
-    agent { label 'amazon_linux2 || debian_runner1 || ubuntu1804_runner1' }
+    agent { label any }
     stages {
         stage('Build') {
             steps {
