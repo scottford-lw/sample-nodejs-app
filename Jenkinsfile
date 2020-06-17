@@ -40,7 +40,7 @@ pipeline {
             }
             steps {
                 echo 'Running Lacework vulnerability scan'
-                sh 'lacework vulnerability scan run index.docker.io selacework/sample-nodejs-app latest --poll --noninteractive'
+                sh 'lacework vulnerability scan run index.docker.io selacework/sample-nodejs-app latest --poll --noninteractive --details'
             }
         }
     }
