@@ -35,12 +35,17 @@ pipeline {
             }
         }
         stage('Lacework Vulnerability Scan') {
+            environment {
+                LW_ACCOUNT = credentials('LW_ACCOUNT')
+                LW_API_KEY = credentials('LW_API_KEY')
+                LW_API_SECRET = credentials('LW_API_SECRET')
+            
             when {
                 branch 'master'
             }
             steps {
                 echo 'Running Lacework vulnerability scan'
-                sh 'lacework vulnerability container scan index.docker.io selacework/sample-nodejs-app latest --poll --noninteractive'
+                sh 'lacework vulnerability container scan index.docker.io selacework/sample-nodejs-app latest --poll --noninteractive --details --account $LW_ACCOUNT --api_key $LW_API_KEY --api_secret $LW_API_SECRET'
             }
         }
     }
