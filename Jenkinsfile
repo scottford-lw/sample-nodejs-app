@@ -35,6 +35,9 @@ pipeline {
             }
         }
         stage('Lacework Vulnerability Scan') {
+            environment {
+                LW_API_SECRET = credentials('lacework_api_secret')
+            }
             when {
                 branch 'master'
             }
