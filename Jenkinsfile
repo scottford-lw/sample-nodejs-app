@@ -39,7 +39,7 @@ pipeline {
                 LW_ACCOUNT = credentials('LW_ACCOUNT')
                 LW_API_KEY = credentials('LW_API_KEY')
                 LW_API_SECRET = credentials('LW_API_SECRET')
-            
+            }
             when {
                 branch 'master'
             }
