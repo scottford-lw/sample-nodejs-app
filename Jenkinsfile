@@ -45,7 +45,7 @@ pipeline {
             }
             steps {
                 echo 'Running Lacework vulnerability scan'
-                sh 'lacework vulnerability container scan index.docker.io selacework/sample-nodejs-app latest --poll --noninteractive --details --account $LW_ACCOUNT --api_key $LW_API_KEY --api_secret $LW_API_SECRET'
+                sh 'lacework vulnerability container scan index.docker.io selacework/sample-nodejs-app latest --poll --noninteractive --html --account $LW_ACCOUNT --api_key $LW_API_KEY --api_secret $LW_API_SECRET'
             }
         }
     }
